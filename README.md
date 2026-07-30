@@ -12,7 +12,7 @@
 1. **填息天數過長**：領了股息卻賠了股價，導致本金實質耗損。
 2. **總費用率（內扣費用）**：長期持有下，高昂的內扣成本會劇烈侵蝕長期複利收益。
 
-**本專案目標：** 清洗並分析 2023 至 2025 年台股市值型與高股息 ETF 數據，透過資料視覺化進行多維度比對，並建立一個**可動態調整權重的綜合評分決策模型**，客觀評估各 ETF 的綜合表現。
+**本專案目標：** 清洗並分析 2023 至 2025 年台股市值型（0050, 006208, 00692, 00922, 00850）與高股息/主題型 ETF（0056, 00919, 00878, 00900, 00929）數據，透過數據視覺化進行多維度比對，並建立**客製化權重的綜合評分決策模型**。
 
 ---
 
@@ -20,73 +20,98 @@
 
 - **程式語言：** Python 3.x
 - **數據處理與清洗：** `Pandas`, `NumPy`, `Glob`, `Re` (正規表示法處理民國/西元日期轉換與數值格式化)
-- **視覺化與繪圖：** `Matplotlib` (Subplots, Date Formatter, Boxplot, Scatter Jitter, Pie Chart)
+- **視覺化與繪圖：** `Matplotlib` (Subplots, Date Formatter, Boxplot, Scatter Jitter, Pie Chart, Bar Chart)
 - **統計模型：** Min-Max 標準化（Min-Max Normalization）、權重評分模型（Weighted Scoring Model）
 
 ---
 
 ## 🔍 核心分析與洞察 (Key Insights)
 
-### 1. 價量與趨勢分析 (20MA Trend Analysis)
-- **市值型 ETF (如 0050, 006208)：** 20 日移動平均線（20MA）整體呈階梯式緩步墊高，跌破均線後修復能力強。
-- **高股息 ETF：** 受到頻繁除息與成分股調整影響，20MA 走勢較為崎嶇且短線波動較顯著。
+### 1. 價量趨勢與市場交投 (Trend & Volume Analysis)
+- **20MA 走勢：** 市值型 ETF（如 0050, 006208）20 日均線整體呈階梯式緩步墊高；高股息 ETF 則因頻繁除息，均線波動較劇烈。
+- **成交量分佈：** 00919、00878 與 00929 在 2023-2025 年間展現極高的人氣與成交爆量，顯示高股息產品在散戶市場的強勁需求。
 
 ### 2. 重大事件衝擊評估 (Event Impact Analysis)
-- 追蹤 Nvidia AI 浪潮大漲、2024/08/05 盤勢劇烈修正等重大時間點之影響。
-- **發現：** 市值型 ETF 因重倉科技龍頭股，在單一利空事件下跌幅較為明顯，但同時展現出**較快的填息與復甦速度**。
+追蹤三大關鍵時間點對各 ETF 收益率的衝擊與復甦表現：
+- **2023/05/25 NVIDIA AI 浪潮：** 帶動科技重倉型 ETF（如 0050, 006208）單日收益顯著大跳漲。
+- **2024/08/05 美國經濟衰退擔憂：** 全台股大幅拉回，市值型 ETF 修正約 -8.5% ~ -10%，但隨後展現出較強的修復力。
+- **2025/04/07 關稅政策衝擊：** 市場再次迎來修整，各 ETF 均承受約 -10% 的短線拉回壓力。
 
-### 3. 成分股結構與填息相關性 (Portfolio Analysis)
-- 透過產業成分股分析（圓餅圖）顯示：半導體龍頭（如台積電）持股佔比與「填息得分」呈顯著正相關，是確保資產長期實質增值（而非左手換右手）的核心關鍵。
+### 3. 隱藏成本與填息效率 (Hidden Costs & Efficiency)
+- **累計配息：** 0050 以 12.5 元高居榜首，高股息族群（如 0056, 00919）亦提供穩定的現金流表現。
+- **填息天數天差地遠：** 市值型 ETF（0050, 006208）平均填息天數僅約 14~15 天；部分高股息 ETF 填息天數高達 55~72 天，增加本金耗損風險。
+- **內扣費用率：** 0050 (0.22%) 與 006208 (0.25%) 持有成本極低；而 00929 費用率高達 1.2%，長期持有需特別留意成本侵蝕。
 
 ---
 
 ## 📐 綜合評分決策模型 (Standardized Scoring Model)
 
-為了打破單一指標的偏誤，本模型將三大關鍵指標轉化為可比對的標準化分數（0~1 分）：
-
-1. **配息金額 (Dividend Yield / Amount)**：衡量現金流回饋
-2. **平均填息天數 (Days to Fill Gap)**：衡量資金回籠與本金修復效率（數值越低越好，模型取倒數轉化）
-3. **總費用率 (Total Expense Ratio)**：衡量持有成本（數值越低越好，模型取倒數轉化）
-
-### 🧮 評分公式 (Scoring Formula)
+將三項核心指標透過 **Min-Max 標準化** 轉化為 0~100 分：
+1. **配息得分（收益）**：衡量現金流回饋
+2. **填息得分（效率）**：衡量資金回籠速度（填息天數越短得分越高）
+3. **費用得分（成本）**：衡量持有成本（內扣費用越低得分越高）
 
 $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得分}) + (w_3 \times \text{費用得分})$$
 
 ---
 
-### 🎯 動態權重策略比對 (Strategy Weight Scenarios)
+## 📊 視覺化成果展現 (Visualizations)
 
-本專案針對三種不同投資性格，擬定客製化權重比例：
+### 1. 2023~2025 年 ETF 價量走勢圖
+![ETF 價量表](<img width="2048" height="1173" alt="2023~2025ETF價量表" src="https://github.com/user-attachments/assets/a6c77ddf-8040-41b9-a917-5600391d1e76" />
+)
+*說明：追蹤 10 檔熱門 ETF 之收盤價、20MA 均線與每日成交量變化。*
 
-| 策略導向 | 配息權重 ($w_1$) | 填息權重 ($w_2$) | 費用權重 ($w_3$) | 適合對象 |
-| :--- | :---: | :---: | :---: | :--- |
-| **1. 收益導向 (Income-Focused)** | **50%** | 25% | 25% | 追求穩定現金流、退休族群 |
-| **2. 效率導向 (Efficiency-Focused)** | 25% | **50%** | 25% | 重視資金靈活度與填息速度的投資人 |
-| **3. 成本導向 (Cost-Focused)** | 25% | 25% | **50%** | 長期Buy and Hold、極度在意內扣損耗者 |
+### 2. 成交量變化觀察
+![ETF 成交量長條圖](<img width="2048" height="1173" alt="2023~2025ETF成交量長條圖" src="https://github.com/user-attachments/assets/3abf79a2-1fb3-418a-93bf-80241d9d8136" />
+
+)
+*說明：各 ETF 在 2023 至 2025 年間的每日成交量（百萬股）分佈比對。*
+
+### 3. 重大事件對 ETF 收益率衝擊
+![重大事件對收益影響](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/f7e08e48-09da-4b70-bb6b-4152e8ff48a2" />
+
+)
+*說明：標註 NVIDIA AI 浪潮、8/05 美股衰退擔憂及 4/07 關稅衝擊對收益率的影響。*
+
+### 4. 績效、填息天數與內扣費用分析
+![績效與隱藏成本](<img width="2048" height="1173" alt="2023~2025績效 隱藏成本圖表" src="https://github.com/user-attachments/assets/b816250f-7ce7-468e-be7c-2435ebffa655" />
+
+)
+*說明：直觀比較 10 檔 ETF 的總累計配息（元）、平均填息天數（天）與內扣費用率 (%)。*
+
+### 5. 產業成分股佔比圓餅圖
+![ETF 成分佔比圓餅圖](<img width="2048" height="1173" alt="ETF成分占比圓餅圖(2023~2025)" src="https://github.com/user-attachments/assets/14eb3ecd-7c5f-404e-bef5-7941310e0498" />
+
+)
+*說明：剖析各 ETF 產業佈局（如半導體、金融保險、電腦周邊），解釋其填息與抗跌表現的根源。*
 
 ---
 
-## 📊 視覺化成果展現 (Visualizations)
+### 🎯 評分模型策略比較 (Scoring Model Boxplots)
 
-> *(提示：請將你的分析圖片放至專案資料夾 `images/` 中，並替換下方圖片連結)*
+透過調整 $w_1, w_2, w_3$ 權重，呈現不同投資偏好下的評分分佈：
 
-### 1. 20MA 價量趨勢與事件衝擊圖
-![20MA Trend Analysis](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/e839034a-22b4-42a4-a547-4e1dde12d254" />
+| 評分圖表 | 策略導向 | 權重設定 (收益 / 效率 / 成本) | 結論與發現 |
+| :--- | :--- | :---: | :--- |
+| **圖一** | **收益導向 (Income-Focused)** | **50%** / 25% / 25% | 適合追求現金流者，高股息族群表現提升。 |
+| **圖二** | **效率導向 (Efficiency-Focused)** | 25% / **50%** / 25% | 市值型 ETF 憑藉極短填息天數顯著拉開分差距。 |
+| **圖三** | **成本導向 (Cost-Focused)** | 25% / 25% / **50%** | 低內扣費用的 0050 與 006208 佔據絕對優勢。 |
 
-)
-*說明：繪製 2023-2025 年間熱門 ETF 價格與 20MA 走勢，並標註重大市場事件節點。*
-
-### 2. 填息天數與費用率箱形圖 (Boxplot & Scatter)
-![Gap Days and Expense Ratio](<img width="3632" height="2193" alt="ETF綜合評比BOX圖3" src="https://github.com/user-attachments/assets/ba06a9d5-cf8b-46c7-8ff8-92de289afe95" />
-
-)
-*說明：比較市值型與高股息 ETF 在填息天數分佈與內扣費用率上的差異。*
-
-### 3. 三大策略綜合評分排名比較
-![Scoring Model Result](<img width="2048" height="1173" alt="2023~2025績效 隱藏成本圖表" src="https://github.com/user-attachments/assets/de998ef6-8aa8-4c16-9af4-482e26ad6767" />
+#### 📊 評分分佈圖 1 (收益導向)
+![BOX圖1](<img width="1400" height="800" alt="ETF綜合評比BOX圖1" src="https://github.com/user-attachments/assets/4b129dc3-3439-42f2-8172-0999530d96e1" />
 
 )
-*說明：展示在收益、效率、成本三種不同權重偏好下，各 ETF 的最終綜合得分與排名變化。*
+
+#### 📊 評分分佈圖 2 (效率導向)
+![BOX圖2](<img width="3632" height="2193" alt="ETF綜合評比BOX圖2" src="https://github.com/user-attachments/assets/a989a3ba-6ba2-4e1f-b4ad-97559a055c2f" />
+
+)
+
+#### 📊 評分分佈圖 3 (成本導向)
+![BOX圖3](<img width="3632" height="2193" alt="ETF綜合評比BOX圖3" src="https://github.com/user-attachments/assets/5745de29-f614-4ffa-b3eb-3e3823a94f77" />
+
+)
 
 ---
 
@@ -94,12 +119,15 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 
 ```text
 .
-├── README.md                 # 專案總覽說明檔案
-├── etf_quant_analysis.py     # 主要資料處理、視覺化與評分模型程式碼
-├── data/                     # 原始與清洗後之 CSV 數據集 (2023-2025)
-│   ├── etf_prices.csv
-│   └── etf_dividends.csv
-└── images/                   # 視覺化成果圖表
-    ├── etf_trend_analysis.png
-    ├── expense_vs_gap.png
-    └── scoring_result.png
+├── README.md                                 # 專案說明檔案
+├── etf_quant_analysis.py                     # 資料處理、繪圖與評分模型主程式
+├── data/                                     # 2023-2025 行情與配息 CSV 數據
+└── images/                                   # 視覺化圖表儲存目錄
+    ├── 2023~2025ETF價量表.jpeg
+    ├── 2023~2025ETF成交量長條圖.jpeg
+    ├── 2023~2025ETF重大事件對收益影響peg.jpeg
+    ├── 2023~2025績效&隱藏成本圖表.jpeg
+    ├── ETF成分佔比圓餅圖(2023~2025).jpeg
+    ├── ETF綜合評比BOX圖1.jpeg
+    ├── ETF綜合評比BOX圖2.png
+    └── ETF綜合評比BOX圖3.png
