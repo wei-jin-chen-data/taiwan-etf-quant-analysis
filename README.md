@@ -71,7 +71,7 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 > *(提示：請將你的分析圖片放至專案資料夾 `images/` 中，並替換下方圖片連結)*
 
 ### 1. 20MA 價量趨勢與事件衝擊圖
-![20MA Trend Analysis](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/3d593c9a-7a08-4946-a32f-33e9131aa030" />
+![20MA Trend Analysis](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/0547e764-2d5c-4ec2-a21d-976037f5277b" />
 )
 *說明：繪製 2023-2025 年間熱門 ETF 價格與 20MA 走勢，並標註重大市場事件節點。*
 
