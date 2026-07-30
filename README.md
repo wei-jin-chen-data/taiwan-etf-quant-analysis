@@ -71,16 +71,21 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 > *(提示：請將你的分析圖片放至專案資料夾 `images/` 中，並替換下方圖片連結)*
 
 ### 1. 20MA 價量趨勢與事件衝擊圖
-![20MA Trend Analysis](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/0547e764-2d5c-4ec2-a21d-976037f5277b" />
+![20MA Trend Analysis](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/e839034a-22b4-42a4-a547-4e1dde12d254" />
+
 )
 *說明：繪製 2023-2025 年間熱門 ETF 價格與 20MA 走勢，並標註重大市場事件節點。*
 
 ### 2. 填息天數與費用率箱形圖 (Boxplot & Scatter)
-![Gap Days and Expense Ratio](images/expense_vs_gap.png)
+![Gap Days and Expense Ratio](<img width="3632" height="2193" alt="ETF綜合評比BOX圖3" src="https://github.com/user-attachments/assets/ba06a9d5-cf8b-46c7-8ff8-92de289afe95" />
+
+)
 *說明：比較市值型與高股息 ETF 在填息天數分佈與內扣費用率上的差異。*
 
 ### 3. 三大策略綜合評分排名比較
-![Scoring Model Result](images/scoring_result.png)
+![Scoring Model Result](<img width="2048" height="1173" alt="2023~2025績效 隱藏成本圖表" src="https://github.com/user-attachments/assets/de998ef6-8aa8-4c16-9af4-482e26ad6767" />
+
+)
 *說明：展示在收益、效率、成本三種不同權重偏好下，各 ETF 的最終綜合得分與排名變化。*
 
 ---
