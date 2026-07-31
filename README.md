@@ -18,7 +18,7 @@
 
 ## 🛠️ 技術棧 (Tech Stack)
 
-- **程式語言：** Python 3.x
+- **程式語言：** Python 3
 - **數據處理與清洗：** `Pandas`, `NumPy`, `Glob`, `Re` (正規表示法處理民國/西元日期轉換與數值格式化)
 - **視覺化與繪圖：** `Matplotlib` (Subplots, Date Formatter, Boxplot, Scatter Jitter, Pie Chart, Bar Chart)
 - **統計模型：** Min-Max 標準化（Min-Max Normalization）、權重評分模型（Weighted Scoring Model）
@@ -59,6 +59,7 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 
 ### 1. 2023~2025 年 ETF 價量走勢圖
 ![ETF 價量表](<img width="2048" height="1173" alt="2023~2025ETF價量表" src="https://github.com/user-attachments/assets/a6c77ddf-8040-41b9-a917-5600391d1e76" />
+
 )
 *說明：追蹤 10 檔熱門 ETF 之收盤價、20MA 均線與每日成交量變化。*
 
@@ -114,20 +115,16 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 )
 
 ---
+### 📂 專案檔案結構 (Project Structure)
 
-## 📂 專案檔案結構 (Project Structure)
-
-```text
 .
 ├── README.md                                 # 專案說明檔案
-├── etf_quant_analysis.py                     # 資料處理、繪圖與評分模型主程式
-├── data/                                     # 2023-2025 行情與配息 CSV 數據
 └── images/                                   # 視覺化圖表儲存目錄
     ├── 2023~2025ETF價量表.jpeg
     ├── 2023~2025ETF成交量長條圖.jpeg
     ├── 2023~2025ETF重大事件對收益影響peg.jpeg
     ├── 2023~2025績效&隱藏成本圖表.jpeg
     ├── ETF成分佔比圓餅圖(2023~2025).jpeg
-    ├── ETF綜合評比BOX圖1.jpeg
-    ├── ETF綜合評比BOX圖2.png
-    └── ETF綜合評比BOX圖3.png
+    ├── ETF綜合評比BOX圖1.jpeg               # 綜合評分(情境一)：配息 25% / 填息 50% / 費用 25%
+    ├── ETF綜合評比BOX圖2.png                # 綜合評分(情境二)：配息 25% / 填息 25% / 費用 50%
+    └── ETF綜合評比BOX圖3.png                # 綜合價值評分(基本款)：配息 50% / 填息 25% / 費用 25%
