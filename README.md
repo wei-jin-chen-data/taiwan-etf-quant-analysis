@@ -115,7 +115,6 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 )
 
 ---
-### 📂 專案檔案結構 (Project Structure)
 
 ## 📂 專案檔案結構 (Project Structure)
 
