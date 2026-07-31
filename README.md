@@ -8,7 +8,7 @@
 
 ## 📌 專案背景與痛點 (Background & Problem)
 
-在台灣的 ETF 投資市場中，投資人常落入**「高配息迷思」**，單純追逐高殖利率而忽視了：
+在台灣的 ETF 投資市場中，投資人常落入「高配息迷思」，單純追逐高殖利率而忽視了：
 1. **填息天數過長**：領了股息卻賠了股價，導致本金實質耗損。
 2. **總費用率（內扣費用）**：長期持有下，高昂的內扣成本會劇烈侵蝕長期複利收益。
 
@@ -51,40 +51,30 @@
 2. **填息得分（效率）**：衡量資金回籠速度（填息天數越短得分越高）
 3. **費用得分（成本）**：衡量持有成本（內扣費用越低得分越高）
 
-$$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得分}) + (w_3 \times \text{費用得分})$$
+$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得分}) + (w_3 \times \text{費用得分})$
 
 ---
 
 ## 📊 視覺化成果展現 (Visualizations)
 
 ### 1. 2023~2025 年 ETF 價量走勢圖
-![ETF 價量表](<img width="2048" height="1173" alt="2023~2025ETF價量表" src="https://github.com/user-attachments/assets/a6c77ddf-8040-41b9-a917-5600391d1e76" />
-
-)
+<img width="2048" height="1173" alt="2023~2025ETF價量表" src="https://github.com/user-attachments/assets/a6c77ddf-8040-41b9-a917-5600391d1e76" />
 *說明：追蹤 10 檔熱門 ETF 之收盤價、20MA 均線與每日成交量變化。*
 
 ### 2. 成交量變化觀察
-![ETF 成交量長條圖](<img width="2048" height="1173" alt="2023~2025ETF成交量長條圖" src="https://github.com/user-attachments/assets/3abf79a2-1fb3-418a-93bf-80241d9d8136" />
-
-)
+<img width="2048" height="1173" alt="2023~2025ETF成交量長條圖" src="https://github.com/user-attachments/assets/3abf79a2-1fb3-418a-93bf-80241d9d8136" />
 *說明：各 ETF 在 2023 至 2025 年間的每日成交量（百萬股）分佈比對。*
 
 ### 3. 重大事件對 ETF 收益率衝擊
-![重大事件對收益影響](<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/f7e08e48-09da-4b70-bb6b-4152e8ff48a2" />
-
-)
+<img width="2048" height="1173" alt="2023~2025ETF重大事件對收益影響peg" src="https://github.com/user-attachments/assets/f7e08e48-09da-4b70-bb6b-4152e8ff48a2" />
 *說明：標註 NVIDIA AI 浪潮、8/05 美股衰退擔憂及 4/07 關稅衝擊對收益率的影響。*
 
 ### 4. 績效、填息天數與內扣費用分析
-![績效與隱藏成本](<img width="2048" height="1173" alt="2023~2025績效 隱藏成本圖表" src="https://github.com/user-attachments/assets/b816250f-7ce7-468e-be7c-2435ebffa655" />
-
-)
+<img width="2048" height="1173" alt="2023~2025績效 隱藏成本圖表" src="https://github.com/user-attachments/assets/b816250f-7ce7-468e-be7c-2435ebffa655" />
 *說明：直觀比較 10 檔 ETF 的總累計配息（元）、平均填息天數（天）與內扣費用率 (%)。*
 
 ### 5. 產業成分股佔比圓餅圖
-![ETF 成分佔比圓餅圖](<img width="2048" height="1173" alt="ETF成分占比圓餅圖(2023~2025)" src="https://github.com/user-attachments/assets/14eb3ecd-7c5f-404e-bef5-7941310e0498" />
-
-)
+<img width="2048" height="1173" alt="ETF成分占比圓餅圖(2023~2025)" src="https://github.com/user-attachments/assets/14eb3ecd-7c5f-404e-bef5-7941310e0498" />
 *說明：剖析各 ETF 產業佈局（如半導體、金融保險、電腦周邊），解釋其填息與抗跌表現的根源。*
 
 ---
@@ -100,19 +90,13 @@ $$\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 | **圖三** | **成本導向 (Cost-Focused)** | 25% / 25% / **50%** | 低內扣費用的 0050 與 006208 佔據絕對優勢。 |
 
 #### 📊 評分分佈圖 1 (收益導向)
-![BOX圖1](<img width="1400" height="800" alt="ETF綜合評比BOX圖1" src="https://github.com/user-attachments/assets/4b129dc3-3439-42f2-8172-0999530d96e1" />
-
-)
+<img width="1400" height="800" alt="ETF綜合評比BOX圖1" src="https://github.com/user-attachments/assets/4b129dc3-3439-42f2-8172-0999530d96e1" />
 
 #### 📊 評分分佈圖 2 (效率導向)
-![BOX圖2](<img width="3632" height="2193" alt="ETF綜合評比BOX圖2" src="https://github.com/user-attachments/assets/a989a3ba-6ba2-4e1f-b4ad-97559a055c2f" />
-
-)
+<img width="3632" height="2193" alt="ETF綜合評比BOX圖2" src="https://github.com/user-attachments/assets/a989a3ba-6ba2-4e1f-b4ad-97559a055c2f" />
 
 #### 📊 評分分佈圖 3 (成本導向)
-![BOX圖3](<img width="3632" height="2193" alt="ETF綜合評比BOX圖3" src="https://github.com/user-attachments/assets/5745de29-f614-4ffa-b3eb-3e3823a94f77" />
-
-)
+<img width="3632" height="2193" alt="ETF綜合評比BOX圖3" src="https://github.com/user-attachments/assets/5745de29-f614-4ffa-b3eb-3e3823a94f77" />
 
 ---
 
