@@ -91,17 +91,17 @@ $\text{Score} = (w_1 \times \text{配息得分}) + (w_2 \times \text{填息得�
 | **圖二** | **效率導向 (Efficiency-Focused)** | 25% / **50%** / 25% | 市值型 ETF 憑藉極短填息天數顯著拉開分差距。 |
 | **圖三** | **成本導向 (Cost-Focused)** | 25% / 25% / **50%** | 低內扣費用的 0050 與 006208 佔據絕對優勢。 |
 
-####  評分分佈數據 
+####  綜合評分分佈數據 
 <img width="1055" height="487" alt="評分分佈數據" src="https://github.com/user-attachments/assets/fca90310-2493-456e-83bf-87a4d713c81b" />
 
 
-####  評分分佈圖 1 (收益導向)
+####  綜合評分分佈圖 1 (收益導向)
 <img width="1400" height="800" alt="ETF綜合評比BOX圖1" src="https://github.com/user-attachments/assets/4b129dc3-3439-42f2-8172-0999530d96e1" />
 
-####  評分分佈圖 2 (效率導向)
+####  綜合評分分佈圖 2 (效率導向)
 <img width="3632" height="2193" alt="ETF綜合評比BOX圖2" src="https://github.com/user-attachments/assets/a989a3ba-6ba2-4e1f-b4ad-97559a055c2f" />
 
-####  評分分佈圖 3 (成本導向)
+####  綜合評分分佈圖 3 (成本導向)
 <img width="3632" height="2193" alt="ETF綜合評比BOX圖3" src="https://github.com/user-attachments/assets/5745de29-f614-4ffa-b3eb-3e3823a94f77" />
 
 ---
