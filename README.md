@@ -17,7 +17,7 @@
 ## 🛠️ 技術棧 
 
 - **程式語言：** `Python 3`
-- **數據處理與清洗：** `Pandas`, `NumPy`, `Glob`, `Re` (正規表示法處理民國/西元日期轉換與數值格式化)
+- **數據處理與清洗：** `Pandas`, `Glob`, `Re` (正規表示法處理民國/西元日期轉換與數值格式化)
 - **視覺化與繪圖：** `Matplotlib` (Subplots, Date Formatter, Boxplot, Pie Chart, Bar Chart)
 - **統計模型：** Min-Max 標準化、權重評分模型
 
